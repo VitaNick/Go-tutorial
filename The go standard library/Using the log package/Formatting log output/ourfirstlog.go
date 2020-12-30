@@ -14,34 +14,29 @@ const (
 	FATAL
 )
 
-func main() {
+var (
+	InfoLogger    *log.Logger
+	WarningLogger *log.Logger
+	ErrorLogger   *log.Logger
+	FatalLogger   *log.Logger
+)
 
-	writeLog(INFO, "This is a log message!")
-	writeLog(WARNING, "This is a warning")
-	writeLog(ERROR, "This is an error")
-	writeLog(FATAL, "This is fatal")
-}
-
-func writeLog(messageType messageType, message string) {
+func init() {
 	file, err := os.OpenFile("log.txt", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0666)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	log.SetOutput(file)
+	InfoLogger = log.New(file, "INFO: ", log.LUTC|log.Lmicroseconds|log.Llongfile)
+	WarningLogger = log.New(file, "WARNING: ", log.Ldate|log.Ltime|log.Lshortfile)
+	ErrorLogger = log.New(file, "ERROR: ", log.Ldate|log.Ltime|log.Lshortfile)
+	FatalLogger = log.New(file, "FATAL: ", log.Ldate|log.Ltime|log.Lshortfile)
 
-	switch messageType {
-	case INFO:
-		logger := log.New(file, "INFO: ", log.Ldate|log.Ltime|log.Lshortfile)
-		logger.Println(message)
-	case WARNING:
-		logger := log.New(file, "WARNING: ", log.Ldate|log.Ltime|log.Lshortfile)
-		logger.Println(message)
-	case ERROR:
-		logger := log.New(file, "ERROR: ", log.Ldate|log.Ltime|log.Lshortfile)
-		logger.Println(message)
-	case FATAL:
-		logger := log.New(file, "FATAL: ", log.Ldate|log.Ltime|log.Lshortfile)
-		logger.Fatal(message)
-	}
+}
+
+func main() {
+	InfoLogger.Println("This is info")
+	WarningLogger.Println("This is warning")
+	ErrorLogger.Println("This is an error")
+	FatalLogger.Fatal("This is fatal")
 }

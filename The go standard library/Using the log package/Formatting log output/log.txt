@@ -4,3 +4,15 @@ INFO: 2020/12/31 00:06:58 ourfirstlog.go:36: This is a log message!
 WARNING: 2020/12/31 00:06:58 ourfirstlog.go:39: This is a warning
 ERROR: 2020/12/31 00:06:58 ourfirstlog.go:42: This is an error
 FATAL: 2020/12/31 00:06:58 ourfirstlog.go:45: This is fatal
+INFO: 2020/12/31 00:14:37 ourfirstlog.go:38: This is inf
+WARNING: 2020/12/31 00:14:37 ourfirstlog.go:39: This is warning
+ERROR: 2020/12/31 00:14:37 ourfirstlog.go:40: This is an error
+FATAL: 2020/12/31 00:14:37 ourfirstlog.go:41: This is fatal
+INFO: This is info
+WARNING: 2020/12/31 00:15:16 ourfirstlog.go:39: This is warning
+ERROR: 2020/12/31 00:15:16 ourfirstlog.go:40: This is an error
+FATAL: 2020/12/31 00:15:16 ourfirstlog.go:41: This is fatal
+INFO: 23:16:07.976561 /Users/nick/Documents/Go-tutorial/The go standard library/Using the log package/Formatting log output/ourfirstlog.go:38: This is info
+WARNING: 2020/12/31 00:16:07 ourfirstlog.go:39: This is warning
+ERROR: 2020/12/31 00:16:07 ourfirstlog.go:40: This is an error
+FATAL: 2020/12/31 00:16:07 ourfirstlog.go:41: This is fatal
