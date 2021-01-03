@@ -3,7 +3,8 @@ package main
 import "organization"
 
 func main() {
-	p := organization.Person{FirstName: "James", LastName: "Wilson"}
-	p.FirstName = "Collin"
+	p := organization.NewPerson("Collin", "Wilson")
+
 	println(p.ID())
+	println(p.FullName())
 }
