@@ -15,7 +15,7 @@ func (h Handler) randomFunc() {
 
 }
 
-type TwitterHandler = Handler
+type TwitterHandler string
 
 func (th TwitterHandler) RedirectUrl() string {
 	return ""
