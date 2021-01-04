@@ -6,8 +6,8 @@ import (
 )
 
 func main() {
-	p := organization.NewPerson("James", "Wilson")
-	err := p.SetTwitterHandler(organization.TwitterHandler("@jam_wils"))
+	p := organization.NewPerson("Nick", "Vanden Eynde")
+	err := p.SetTwitterHandler(organization.TwitterHandler("@ninjawulf98"))
 	fmt.Printf("%T\n", organization.TwitterHandler("test"))
 
 	if err != nil {
@@ -15,6 +15,7 @@ func main() {
 	}
 
 	println(p.TwitterHandler())
+	println(p.TwitterHandler().RedirectUrl())
 	println(p.ID())
 	println(p.FullName())
 }
