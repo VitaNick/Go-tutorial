@@ -6,10 +6,19 @@ import (
 	"strings"
 )
 
-type TwitterHandler = string
+type Handler struct {
+	handle string
+	name   string
+}
+
+func (h Handler) randomFunc() {
+
+}
+
+type TwitterHandler = Handler
 
 func (th TwitterHandler) RedirectUrl() string {
-
+	return ""
 }
 
 type Identifiable interface {
@@ -39,7 +48,7 @@ func (p *Person) ID() string {
 	}
 }
 
-func (p *Person) TwitterHandler() string {
+func (p *Person) TwitterHandler() TwitterHandler {
 	return p.twitterHandler
 }
 
@@ -47,7 +56,7 @@ func (p *Person) SetTwitterHandler(handler TwitterHandler) error {
 	if len(handler) == 0 {
 		p.twitterHandler = handler
 
-	} else if !strings.HasPrefix(handler, "@") {
+	} else if !strings.HasPrefix(string(handler), "@") {
 
 		return errors.New("twitter handler must start with an @ symbol")
 	}
