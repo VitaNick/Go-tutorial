@@ -1,10 +1,5 @@
 package main
 
-import (
-	"fmt"
-	"organization"
-)
-
 func main() {
 	// p := organization.NewPerson("Nick", "Vanden Eynde", organization.NewEuropeanUnionIdentifier("123-45-6789", "Belgium"))
 	// err := p.SetTwitterHandler(organization.TwitterHandler("@ninjawulf98"))
@@ -23,19 +18,19 @@ func main() {
 	// println(p.Country())
 	// println(p.FullName())
 
-	ssn := organization.NewSocialSecurityNumber("123-45-6789")
-	eu := organization.NewEuropeanUnionIdentifier("123-45-6789", "Belgium")
-	eu2 := organization.NewEuropeanUnionIdentifier("123-45-6789", "Belgium")
+	// ssn := organization.NewSocialSecurityNumber("123-45-6789")
+	// eu := organization.NewEuropeanUnionIdentifier("123-45-6789", "Belgium")
+	// eu2 := organization.NewEuropeanUnionIdentifier("123-45-6789", "Belgium")
 
-	// name1 := Name{First: "James", Last: "Wilson"}
+	name1 := Name{First: "", Last: ""}
 	// name2 := OtherName{First: "James", Last: "Wilson"}
 
-	if eu2 == eu {
+	if name1 == (Name{}) {
 		println("We match")
 	}
 
-	fmt.Printf("%T\n", ssn)
-	fmt.Printf("%T\n", eu)
+	// fmt.Printf("%T\n", ssn)
+	// fmt.Printf("%T\n", eu)
 
 }
 
