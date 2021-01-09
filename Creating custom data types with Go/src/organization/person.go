@@ -44,7 +44,7 @@ func (ssn socialSecurityNumber) Country() string {
 
 type europeUnionIdentifier struct {
 	id      string
-	country []string
+	country string
 }
 
 func NewEuropeanUnionIdentifier(id interface{}, country string) Citizen {
@@ -52,14 +52,21 @@ func NewEuropeanUnionIdentifier(id interface{}, country string) Citizen {
 	case string:
 		return europeUnionIdentifier{
 			id:      v,
-			country: []string{country},
+			country: country,
 		}
 
 	case int:
 		return europeUnionIdentifier{
 			id:      strconv.Itoa(v),
-			country: []string{country},
+			country: country,
 		}
+
+	case europeUnionIdentifier:
+		return v
+
+	case Person:
+		euID, _ := v.Citizen.(europeUnionIdentifier)
+		return euID
 
 	default:
 		panic("using an invalid type to initialize EU identifier")
