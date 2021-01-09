@@ -43,13 +43,13 @@ func (ssn socialSecurityNumber) Country() string {
 
 type europeUnionIdentifier struct {
 	id      string
-	country string
+	country []string
 }
 
 func NewEuropeanUnionIdentifier(id, country string) Citizen {
 	return europeUnionIdentifier{
 		id:      id,
-		country: country,
+		country: []string{country},
 	}
 }
 

@@ -1,5 +1,10 @@
 package main
 
+import (
+	"fmt"
+	"organization"
+)
+
 func main() {
 	// p := organization.NewPerson("Nick", "Vanden Eynde", organization.NewEuropeanUnionIdentifier("123-45-6789", "Belgium"))
 	// err := p.SetTwitterHandler(organization.TwitterHandler("@ninjawulf98"))
@@ -18,12 +23,20 @@ func main() {
 	// println(p.Country())
 	// println(p.FullName())
 
-	name1 := Name{First: "James", Last: "Wilson"}
-	name2 := OtherName{First: "James", Last: "Wilson"}
+	ssn := organization.NewSocialSecurityNumber("123-45-6789")
+	eu := organization.NewEuropeanUnionIdentifier("123-45-6789", "Belgium")
+	eu2 := organization.NewEuropeanUnionIdentifier("123-45-6789", "Belgium")
 
-	if name1 == name2 {
+	// name1 := Name{First: "James", Last: "Wilson"}
+	// name2 := OtherName{First: "James", Last: "Wilson"}
+
+	if eu2 == eu {
 		println("We match")
 	}
+
+	fmt.Printf("%T\n", ssn)
+	fmt.Printf("%T\n", eu)
+
 }
 
 type Name struct {
