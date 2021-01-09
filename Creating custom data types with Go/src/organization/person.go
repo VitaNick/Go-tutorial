@@ -23,6 +23,10 @@ type Citizen interface {
 	Country() string
 }
 
+type Conflict interface {
+	ID() string
+}
+
 type socialSecurityNumber string
 
 func NewSocialSecurityNumber(value string) Citizen {
@@ -76,6 +80,7 @@ type Person struct {
 	last           string
 	twitterHandler TwitterHandler
 	Citizen
+	Conflict
 }
 
 func NewPerson(firstName, lastName string, citizen Citizen) Person {
@@ -93,7 +98,7 @@ func (p *Person) FullName() string {
 }
 
 func (p *Person) ID() string {
-	return fmt.Sprintf("Person's identifier: %s", p.First)
+	return p.Citizen.ID()
 }
 
 func (p *Person) TwitterHandler() TwitterHandler {
