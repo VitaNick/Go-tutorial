@@ -6,15 +6,6 @@ import (
 	"strings"
 )
 
-type Handler struct {
-	handle string
-	name   string
-}
-
-func (h Handler) randomFunc() {
-
-}
-
 type TwitterHandler string
 
 func (th TwitterHandler) RedirectUrl() string {
@@ -27,27 +18,40 @@ type Identifiable interface {
 	ID() string
 }
 
+type Name struct {
+	first string
+	last  string
+}
+
+func (n Name) FullName() string {
+	return fmt.Sprintf("%s %s", n.first, n.last)
+}
+
+type Employee struct {
+	Name
+}
+
 type Person struct {
-	firstName      string
-	lastName       string
+	Name
 	twitterHandler TwitterHandler
 }
 
 func NewPerson(firstName, lastName string) Person {
 	return Person{
-		firstName: firstName,
-		lastName:  lastName,
+		Name: Name{
+			first: firstName,
+			last:  lastName,
+		},
 	}
 }
 
 func (p *Person) FullName() string {
-	return fmt.Sprintf("%s %s", p.firstName, p.lastName)
+	return fmt.Sprintf("%s %s", p.first, p.last)
 }
 
 func (p *Person) ID() string {
-	{
-		return "12345"
-	}
+
+	return "12345"
 }
 
 func (p *Person) TwitterHandler() TwitterHandler {
