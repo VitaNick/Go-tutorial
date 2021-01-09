@@ -14,6 +14,9 @@ func main() {
 		fmt.Printf("An error occured setting twitter handler: %s\n", err.Error())
 	}
 
+	p.First = "Collin"
+	println(p.First)
+	println(p.Name.First)
 	println(p.TwitterHandler())
 	println(p.TwitterHandler().RedirectUrl())
 	println(p.ID())
