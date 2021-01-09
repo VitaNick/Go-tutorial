@@ -46,11 +46,15 @@ type europeUnionIdentifier struct {
 	country []string
 }
 
-func NewEuropeanUnionIdentifier(id, country string) Citizen {
-	return europeUnionIdentifier{
-		id:      id,
-		country: []string{country},
+func NewEuropeanUnionIdentifier(id interface{}, country string) Citizen {
+	switch v := id.(type) {
+	case string:
+		return europeUnionIdentifier{
+			id:      v,
+			country: []string{country},
+		}
 	}
+
 }
 
 func (eui europeUnionIdentifier) ID() string {

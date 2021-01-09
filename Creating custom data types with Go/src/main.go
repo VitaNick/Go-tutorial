@@ -39,6 +39,7 @@ func main() {
 	// fmt.Printf("%T\n", ssn)
 	// fmt.Printf("%T\n", eu)
 
+
 }
 
 type Name struct {
