@@ -39,7 +39,8 @@ func main() {
 	// fmt.Printf("%T\n", ssn)
 	// fmt.Printf("%T\n", eu)
 
-
+	println(p.ID())
+	println(p.Country())
 }
 
 type Name struct {
