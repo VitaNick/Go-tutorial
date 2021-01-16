@@ -10,6 +10,14 @@ import (
 
 type MathExpr = string
 
+type BadReader struct {
+	err error
+}
+
+type SimpleReader struct {
+	count int
+}
+
 const (
 	AddExpr      = MathExpr("add")
 	SubtractExpr = MathExpr("subtract")
@@ -17,14 +25,36 @@ const (
 )
 
 func main() {
-	ReadSomething()
+	if err := ReadFullFile(); err == io.EOF {
+		println("Successfully read file")
+	} else if err != nil {
+		println("Something bad occured")
+	}
 }
 
-func ReadSomething() error {
-	var r io.Reader = BadReader{errors.New("my nonsense reader")}
-	value, err := r.Read([]byte("test something"))
+func ReadFullFile() error {
+	var r io.Reader = &SimpleReader{}
+
+	for {
+		value, err := r.Read([]byte("Text that does nothing"))
+		if err == io.EOF {
+			println("Finished reading file, breaking out of loop")
+			break
+		} else if err != nil {
+			return err
+		}
+
+		println(value)
+	}
+
+	return nil
+}
+
+func ReadSomethingBad() error {
+	var r io.Reader = &BadReader{errors.New("My nonsense reader")}
+	value, err := r.Read([]byte("Test something"))
 	if err != nil {
-		fmt.Printf("An error occured %s\n", err)
+		fmt.Printf("An error occurred %s", err)
 		return err
 	}
 
@@ -33,12 +63,17 @@ func ReadSomething() error {
 	return nil
 }
 
-type BadReader struct {
-	err error
+func (br *BadReader) Read(p []byte) (n int, err error) {
+	return -1, br.err
 }
 
-func (br BadReader) Read(p []byte) (n int, err error) {
-	return -1, br.err
+func (br *SimpleReader) Read(p []byte) (n int, err error) {
+	if br.count > 3 {
+		return 0, io.EOF
+	}
+	br.count++
+
+	return br.count, nil
 }
 
 func powerOfTwo() func() int64 {
