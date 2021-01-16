@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"go-functions/simplemath"
+	"math"
 )
 
 type MathExpr = string
@@ -14,7 +14,21 @@ const (
 )
 
 func main() {
-	fmt.Printf("%f\n", double(3, 2, mathExpression(SubtractExpr)))
+	p2 := powerOfTwo()
+	value := p2()
+
+	println(value)
+	value = p2()
+
+	println(value)
+}
+
+func powerOfTwo() func() int64 {
+	x := 1.0
+	return func() int64 {
+		x += 1
+		return int64(math.Pow(x, 2))
+	}
 }
 
 func mathExpression(expr MathExpr) func(float64, float64) float64 {
