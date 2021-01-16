@@ -79,6 +79,10 @@ func (br *BadReader) Read(p []byte) (n int, err error) {
 }
 
 func (br *SimpleReader) Read(p []byte) (n int, err error) {
+	// if br.count == 2 {
+	// 	panic("something catastrophic occured in the reader")
+	// }
+
 	if br.count > 3 {
 		return 0, io.EOF
 	}
