@@ -33,7 +33,14 @@ func main() {
 }
 
 func ReadFullFile() error {
-	var r io.Reader = &SimpleReader{}
+	var r io.ReadCloser = &SimpleReader{}
+	defer func() {
+		_ = r.Close()
+	}()
+
+	defer func() {
+		println("before for-loop")
+	}()
 
 	for {
 		value, err := r.Read([]byte("Text that does nothing"))
@@ -46,6 +53,10 @@ func ReadFullFile() error {
 
 		println(value)
 	}
+
+	defer func() {
+		println("after for-loop")
+	}()
 
 	return nil
 }
@@ -74,6 +85,12 @@ func (br *SimpleReader) Read(p []byte) (n int, err error) {
 	br.count++
 
 	return br.count, nil
+}
+
+func (br *SimpleReader) Close() error {
+	println("closing reader")
+
+	return nil
 }
 
 func powerOfTwo() func() int64 {
