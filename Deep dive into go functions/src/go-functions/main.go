@@ -1,14 +1,35 @@
 package main
 
-import "fmt"
+import "go-functions/simplemath"
+
+type MathExpr = string
+
+const (
+	AddExpr      = MathExpr("add")
+	SubtractExpr = MathExpr("subtract")
+	MultiplyExpr = MathExpr("multiply")
+)
 
 func main() {
-	a := func(name string) string {
-		fmt.Printf("My first %s function\n", name)
+	addExpr := mathExpression(MultiplyExpr)
+	println(addExpr(2, 3))
+}
 
-		return name
+func mathExpression(expr MathExpr) func(float64, float64) float64 {
+	switch expr {
+
+	case AddExpr:
+		return simplemath.Add
+
+	case SubtractExpr:
+		return simplemath.Subtract
+
+	case MultiplyExpr:
+		return simplemath.Multiply
+
+	default:
+		return func(f, f2 float64) float64 {
+			return 0
+		}
 	}
-
-	value := a("anonymous")
-	println(value)
 }
