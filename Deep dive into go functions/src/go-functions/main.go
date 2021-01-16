@@ -34,10 +34,13 @@ func ReadFullFile() (err error) {
 	var r io.ReadCloser = &SimpleReader{}
 	defer func() {
 		_ = r.Close()
-		if p := recover(); p != nil {
+		if p := recover(); p == errCatastrophicReader {
 			println(p)
 			err = errors.New("A panic occured but is ok")
+		} else if p != nil {
+			panic("An unexpected error occured and we do not want to recover!")
 		}
+
 	}()
 
 	defer func() {
@@ -81,6 +84,8 @@ func ReadSomethingBad() error {
 func (br *BadReader) Read(p []byte) (n int, err error) {
 	return -1, br.err
 }
+
+var errCatastrophicReader = errors.New("something catastrophic occured in the reader")
 
 func (br *SimpleReader) Read(p []byte) (n int, err error) {
 	if br.count == 2 {
