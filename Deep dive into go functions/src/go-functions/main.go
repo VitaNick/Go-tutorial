@@ -1,7 +1,10 @@
 package main
 
 import (
+	"errors"
+	"fmt"
 	"go-functions/simplemath"
+	"io"
 	"math"
 )
 
@@ -14,17 +17,28 @@ const (
 )
 
 func main() {
-	var funcs []func() int64
-	for i := 0; i < 10; i++ {
-		cleanI := i
-		funcs = append(funcs, func() int64 {
-			return int64(math.Pow(float64(cleanI), 2))
-		})
+	ReadSomething()
+}
+
+func ReadSomething() error {
+	var r io.Reader = BadReader{errors.New("my nonsense reader")}
+	value, err := r.Read([]byte("test something"))
+	if err != nil {
+		fmt.Printf("An error occured %s\n", err)
+		return err
 	}
 
-	for _, f := range funcs {
-		println((f()))
-	}
+	println(value)
+
+	return nil
+}
+
+type BadReader struct {
+	err error
+}
+
+func (br BadReader) Read(p []byte) (n int, err error) {
+	return -1, br.err
 }
 
 func powerOfTwo() func() int64 {
