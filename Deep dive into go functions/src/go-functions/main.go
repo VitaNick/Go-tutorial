@@ -25,30 +25,34 @@ const (
 )
 
 func main() {
-	if err := ReadFullFile(); err == io.EOF {
-		println("Successfully read file")
-	} else if err != nil {
-		println("Something bad occured")
+	if err := ReadFullFile(); err != nil {
+		fmt.Printf("Something bad occured: %s\n", err)
 	}
 }
 
-func ReadFullFile() error {
+func ReadFullFile() (err error) {
 	var r io.ReadCloser = &SimpleReader{}
 	defer func() {
 		_ = r.Close()
+		if p := recover(); p != nil {
+			println(p)
+			err = errors.New("A panic occured but is ok")
+		}
 	}()
 
 	defer func() {
-		println("before for-loop")
+		println("Before for-loop")
 	}()
 
 	for {
-		value, err := r.Read([]byte("Text that does nothing"))
+		value, readerErr := r.Read([]byte("Text that does nothing"))
 		if err == io.EOF {
 			println("Finished reading file, breaking out of loop")
 			break
-		} else if err != nil {
-			return err
+		} else if readerErr != nil {
+			err = readerErr
+
+			return
 		}
 
 		println(value)
@@ -79,9 +83,9 @@ func (br *BadReader) Read(p []byte) (n int, err error) {
 }
 
 func (br *SimpleReader) Read(p []byte) (n int, err error) {
-	// if br.count == 2 {
-	// 	panic("something catastrophic occured in the reader")
-	// }
+	if br.count == 2 {
+		panic(errors.New("Another error"))
+	}
 
 	if br.count > 3 {
 		return 0, io.EOF
