@@ -3,7 +3,7 @@ package product
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"log"
 	"net/http"
 	"strconv"
 	"strings"
@@ -27,7 +27,13 @@ func productsHandler(w http.ResponseWriter, r *http.Request) {
 
 	switch r.Method {
 	case http.MethodGet:
-		productList := getProductList()
+		productList, err := getProductList()
+
+		if err != nil {
+			w.WriteHeader(http.StatusInternalServerError)
+			return
+		}
+
 		productsJson, err := json.Marshal(productList)
 		if err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
@@ -37,32 +43,21 @@ func productsHandler(w http.ResponseWriter, r *http.Request) {
 		w.Write(productsJson)
 
 	case http.MethodPost:
-		// add a new product to the list
-		var newProduct Product
-		bodyBytes, err := ioutil.ReadAll(r.Body)
+		var product Product
+		err := json.NewDecoder(r.Body).Decode(&product)
 		if err != nil {
-			w.WriteHeader((http.StatusBadRequest))
-		}
-		err = json.Unmarshal(bodyBytes, &newProduct)
-		if err != nil {
+			log.Print(err)
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
-
-		if newProduct.ProductID != 0 {
+		productID, err := insertProduct(product)
+		if err != nil {
+			log.Print(err)
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
-
-		_, err = addOrUpdateProduct(newProduct)
-		if err != nil {
-			w.WriteHeader(http.StatusInternalServerError)
-			return
-		}
-
 		w.WriteHeader(http.StatusCreated)
-		return
-
+		w.Write([]byte(fmt.Sprintf(`{"productId":%d}`, productID)))
 	case http.MethodDelete:
 		return
 
@@ -75,70 +70,71 @@ func productsHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func productHandler(w http.ResponseWriter, r *http.Request) {
-	urlPathSegments := strings.Split(r.URL.Path, "/products/")
+	urlPathSegments := strings.Split(r.URL.Path, fmt.Sprintf("%s/", productsBasePath))
+	if len(urlPathSegments[1:]) > 1 {
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
 	productID, err := strconv.Atoi(urlPathSegments[len(urlPathSegments)-1])
-
 	if err != nil {
-		w.WriteHeader(http.StatusNotFound)
-
-		return
-	}
-
-	product := getProduct(productID)
-	if product == nil {
+		log.Print(err)
 		w.WriteHeader(http.StatusNotFound)
 		return
 	}
-
 	switch r.Method {
 	case http.MethodGet:
-		// return a single product
-		productJSON, err := json.Marshal(product)
-
+		product, err := getProduct(productID)
 		if err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
 			return
 		}
-
-		w.Header().Set("Content-Type", "application/json")
-		w.Write(productJSON)
+		if product == nil {
+			w.WriteHeader(http.StatusNotFound)
+			return
+		}
+		j, err := json.Marshal(product)
+		if err != nil {
+			log.Print(err)
+			w.WriteHeader(http.StatusBadRequest)
+			return
+		}
+		_, err = w.Write(j)
+		if err != nil {
+			log.Fatal(err)
+		}
 
 	case http.MethodPut:
-		// Update product in the list
-		var updatedProduct Product
-		bodyBytes, err := ioutil.ReadAll(r.Body)
+		var product Product
+		err := json.NewDecoder(r.Body).Decode(&product)
 		if err != nil {
+			log.Print(err)
 			w.WriteHeader(http.StatusBadRequest)
-
 			return
 		}
-
-		err = json.Unmarshal(bodyBytes, &updatedProduct)
+		if *product.ProductID != productID {
+			w.WriteHeader(http.StatusBadRequest)
+			return
+		}
+		err = updateProduct(product)
 		if err != nil {
+			log.Print(err)
 			w.WriteHeader(http.StatusBadRequest)
-
 			return
 		}
-
-		if updatedProduct.ProductID != productID {
-			w.WriteHeader(http.StatusBadRequest)
-
+	case http.MethodDelete:
+		err := removeProduct(productID)
+		if err != nil {
+			log.Print(err)
+			w.WriteHeader(http.StatusInternalServerError)
 			return
 		}
-
-		addOrUpdateProduct(updatedProduct)
-		w.WriteHeader(http.StatusOK)
-
-		return
 
 	case http.MethodOptions:
 		return
-
 	default:
 		w.WriteHeader(http.StatusMethodNotAllowed)
 	}
 }
-
 func middlewareHandler(handler http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("before handler; middleware start")
