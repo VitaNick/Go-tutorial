@@ -13,15 +13,17 @@ import (
 	"golang.org/x/net/websocket"
 )
 
-const productsBasePath = "products"
+const productsPath = "products"
 
 func SetupRoutes(apiBasePath string) {
 	handleProducts := http.HandlerFunc(productsHandler)
 	handleProduct := http.HandlerFunc(productHandler)
+	reportHandler := http.HandlerFunc(handleProductReport)
 
 	http.Handle("/websocket", websocket.Handler(productSocket))
-	http.Handle(fmt.Sprintf("%s/%s", apiBasePath, productsBasePath), cors.Middleware(handleProducts))
-	http.Handle(fmt.Sprintf("%s/%s/", apiBasePath, productsBasePath), cors.Middleware(handleProduct))
+	http.Handle(fmt.Sprintf("%s/%s", apiBasePath, productsPath), cors.Middleware(handleProducts))
+	http.Handle(fmt.Sprintf("%s/%s/", apiBasePath, productsPath), cors.Middleware(handleProduct))
+	http.Handle(fmt.Sprintf("%s/%s/reports", apiBasePath, productsPath), cors.Middleware(reportHandler))
 
 }
 
@@ -72,7 +74,7 @@ func productsHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func productHandler(w http.ResponseWriter, r *http.Request) {
-	urlPathSegments := strings.Split(r.URL.Path, fmt.Sprintf("%s/", productsBasePath))
+	urlPathSegments := strings.Split(r.URL.Path, fmt.Sprintf("%s/", productsPath))
 	if len(urlPathSegments[1:]) > 1 {
 		w.WriteHeader(http.StatusBadRequest)
 		return
