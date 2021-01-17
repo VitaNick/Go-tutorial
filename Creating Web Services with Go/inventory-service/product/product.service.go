@@ -8,6 +8,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/pluralsight/webservices/cors"
 )
 
 const productsBasePath = "products"
@@ -16,23 +18,13 @@ func SetupRoutes(apiBasePath string) {
 	handleProducts := http.HandlerFunc(productsHandler)
 	handleProduct := http.HandlerFunc(productHandler)
 
-	http.Handle(fmt.Sprintf("%s/%s", apiBasePath, productsBasePath), handleProducts)
-	http.Handle(fmt.Sprintf("%s/%s/", apiBasePath, productsBasePath), handleProduct)
+	http.Handle(fmt.Sprintf("/%s/%s", apiBasePath, productsBasePath), cors.Middleware(handleProducts))
+	http.Handle(fmt.Sprintf("/%s/%s/", apiBasePath, productsBasePath), cors.Middleware(handleProduct))
 
-}
-
-// Product
-type Product struct {
-	ProductID      int    `json:"productId"`
-	Manufacturer   string `json:"manufacturer"`
-	Sku            string `json:"sku"`
-	Upc            string `json:"upc"`
-	PricePerUnit   string `json:"pricePerUnit"`
-	QuantityOnHand int    `json:"quantityOnHand"`
-	ProductName    string `json:"productName"`
 }
 
 func productsHandler(w http.ResponseWriter, r *http.Request) {
+
 	switch r.Method {
 	case http.MethodGet:
 		productList := getProductList()
@@ -62,13 +54,19 @@ func productsHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		_, err := addOrUpdateProduct(newProduct)
+		_, err = addOrUpdateProduct(newProduct)
 		if err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
 			return
 		}
 
 		w.WriteHeader(http.StatusCreated)
+		return
+
+	case http.MethodDelete:
+		return
+
+	case http.MethodOptions:
 		return
 
 	default:
@@ -131,6 +129,9 @@ func productHandler(w http.ResponseWriter, r *http.Request) {
 		addOrUpdateProduct(updatedProduct)
 		w.WriteHeader(http.StatusOK)
 
+		return
+
+	case http.MethodOptions:
 		return
 
 	default:
