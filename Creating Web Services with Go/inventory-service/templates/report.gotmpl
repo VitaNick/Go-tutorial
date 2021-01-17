@@ -5,11 +5,26 @@
 <div style="font-size: 1.5rem; font-weight: bold; color: #212529; display: block; font-family: Roboto, 'Helvetica Neue', sans-serif;font-stretch: normal; font-weight: bold; text-align: left; padding: .75rem 1.25rem; background-color: rgba(0,0,0,.03); border-bottom: 1px solid rgba(0,0,0,.125); ">
 Product Summary Report
 </div>
-<div>
-<span>Product Name: {{.ProductName}}</span>
-<span>Quantity on Hand: {{.QuantityOnHand}}</span>
-
-</div>
-
+	<table style="width: 100%; height: 100%; margin-top: .5em;">
+			<tr>
+            <th>Row</th>
+            <th>Product Name</th>
+            <th>Quantity On Hand</th>
+            </tr>
+            {{range $index, $element := .}}
+             <tr>
+            
+				 <td>
+                 {{$index}}
+                 </td>
+                 <td>
+					{{.ProductName}}
+				</td>
+				<td>
+					{{.QuantityOnHand}}
+				</td>
+			</tr>
+			{{end}}
+		</table>
 </body>
 </html>
