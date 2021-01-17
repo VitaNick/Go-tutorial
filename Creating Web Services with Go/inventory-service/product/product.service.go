@@ -18,8 +18,8 @@ func SetupRoutes(apiBasePath string) {
 	handleProducts := http.HandlerFunc(productsHandler)
 	handleProduct := http.HandlerFunc(productHandler)
 
-	http.Handle(fmt.Sprintf("/%s/%s", apiBasePath, productsBasePath), cors.Middleware(handleProducts))
-	http.Handle(fmt.Sprintf("/%s/%s/", apiBasePath, productsBasePath), cors.Middleware(handleProduct))
+	http.Handle(fmt.Sprintf("%s/%s", apiBasePath, productsBasePath), cors.Middleware(handleProducts))
+	http.Handle(fmt.Sprintf("%s/%s/", apiBasePath, productsBasePath), cors.Middleware(handleProduct))
 
 }
 
