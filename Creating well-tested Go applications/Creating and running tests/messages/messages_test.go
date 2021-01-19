@@ -13,6 +13,23 @@ func TestGreet(t *testing.T) {
 	}
 }
 
+func TestGreetCableDriven(t *testing.T) {
+	scenarios := []struct {
+		input  string
+		expect string
+	}{
+		{input: "Gopher", expect: "Hello, Gopher!\n"},
+		{input: "", expect: "Hello, !\n"},
+	}
+
+	for _, s := range scenarios {
+		got := Greet(s.input)
+		if got != s.expect {
+			t.Errorf("Did not get expected result for input '%v', expected: %q, got %q\n", s.input, s.expect, got)
+		}
+	}
+}
+
 func TestDepart(t *testing.T) {
 	got := depart("Gopher")
 	expect := "Goodbye, Gopher!\n"
