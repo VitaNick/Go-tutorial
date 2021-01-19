@@ -22,8 +22,8 @@ func TestDepart(t *testing.T) {
 	}
 }
 
-func TestFailureTypes(t *testing.T) {
-	t.Error("Error signals a failed test, but doesn't stop the rest of the test from executing")
-	t.Fatal("Fatal will fail the test and stop its execution")
-	t.Error("This will never print since it is preceeded by an immediate failure")
-}
+// func TestFailureTypes(t *testing.T) {
+// 	t.Error("Error signals a failed test, but doesn't stop the rest of the test from executing")
+// 	t.Fatal("Fatal will fail the test and stop its execution")
+// 	t.Error("This will never print since it is preceeded by an immediate failure")
+// }
