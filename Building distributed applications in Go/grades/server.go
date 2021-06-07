@@ -29,7 +29,7 @@ func (sh studentsHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			w.WriteHeader(http.StatusNotFound)
 			return
 		}
-		sh.GetOne(w, r, id)
+		sh.getOne(w, r, id)
 	case 4:
 		id, err := strconv.Atoi(pathSegments[2])
 		if err != nil {
