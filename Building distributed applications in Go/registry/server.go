@@ -27,7 +27,7 @@ var reg = registry{registrations: make([]Registration, 0),
 
 type RegistryService struct{}
 
-func (s registry) ServerHTTP(w http.ResponseWriter, req *http.Request) {
+func (s RegistryService) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	log.Println((" Request received"))
 	switch req.Method {
 	case http.MethodPost:
@@ -48,6 +48,5 @@ func (s registry) ServerHTTP(w http.ResponseWriter, req *http.Request) {
 		}
 	default:
 		w.WriteHeader(http.StatusMethodNotAllowed)
-		http.StatusRequestURITooLong
 	}
 }
