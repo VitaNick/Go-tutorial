@@ -23,6 +23,10 @@ func (r *registry) add(reg Registration) error {
 	r.registrations = append(r.registrations, reg)
 	r.mutex.Unlock()
 	err := r.sendRequiredServices(reg)
+	if err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -55,7 +59,7 @@ func (r registry) sendPatch(p patch, url string) error {
 	if err != nil {
 		return err
 	}
-	_, err := http.Post(url, "application/json", bytes.NewBuffer(d))
+	_, err = http.Post(url, "application/json", bytes.NewBuffer(d))
 	if err != nil {
 		return err
 	}

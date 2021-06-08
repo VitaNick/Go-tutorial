@@ -87,6 +87,9 @@ func (sh studentsHandler) addGrade(w http.ResponseWriter, r *http.Request, id in
 		log.Println(err)
 		return
 	}
+
+	var g Grade
+
 	student.Grades = append(student.Grades, g)
 
 	w.WriteHeader(http.StatusCreated)

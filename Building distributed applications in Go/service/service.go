@@ -38,6 +38,7 @@ func startService(ctx context.Context, serviceName registry.ServiceName, host, p
 		if err != nil {
 			log.Println(err)
 		}
+
 		srv.Shutdown(ctx)
 		cancel()
 	}()
