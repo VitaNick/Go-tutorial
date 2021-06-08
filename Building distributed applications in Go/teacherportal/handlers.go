@@ -14,11 +14,10 @@ import (
 
 func RegisterHandlers() {
 	http.Handle("/", http.RedirectHandler("/students", http.StatusPermanentRedirect))
+
 	h := new(studentsHandler)
-
-	http.Handler("/students", h)
-	http.Handler("/students/", h)
-
+	http.Handle("/students", h)
+	http.Handle("/students/", h)
 }
 
 type studentsHandler struct{}
@@ -65,17 +64,19 @@ func (studentsHandler) renderStudents(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		return
 	}
+
 	res, err := http.Get(serviceURL + "/students")
 	if err != nil {
 		return
 	}
-	var s grades.Student
+
+	var s grades.Students
 	err = json.NewDecoder(res.Body).Decode(&s)
 	if err != nil {
 		return
 	}
-	rootTemplate.Lookup("students.gohtml").Execute(w, s)
 
+	rootTemplate.Lookup("students.gohtml").Execute(w, s)
 }
 
 func (studentsHandler) renderStudent(w http.ResponseWriter, r *http.Request, id int) {
@@ -107,7 +108,6 @@ func (studentsHandler) renderStudent(w http.ResponseWriter, r *http.Request, id 
 
 	rootTemplate.Lookup("student.gohtml").Execute(w, s)
 }
-
 func (studentsHandler) renderGrades(w http.ResponseWriter, r *http.Request, id int) {
 
 	if r.Method != http.MethodPost {

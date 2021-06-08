@@ -1,2 +1,643 @@
 2021/06/07 10:33:04 This should be logged
 2021/06/07 10:33:13 This should be logged
+2021/06/08 13:04:56 [TeacherPortalService] - Error retrieving students:  json: cannot unmarshal array into Go value of type grades.Student
+
+2021/06/08 13:04:59 [TeacherPortalService] - Error retrieving students:  json: cannot unmarshal array into Go value of type grades.Student
+
+2021/06/08 13:05:30 [TeacherPortalService] - Error retrieving students:  json: cannot unmarshal array into Go value of type grades.Student
+
+2021/06/08 13:05:35 [TeacherPortalService] - Error retrieving students:  json: cannot unmarshal array into Go value of type grades.Student
+
+2021/06/08 13:06:20 [TeacherPortalService] - Error retrieving students:  json: cannot unmarshal array into Go value of type grades.Student
+
+2021/06/08 13:06:54 [TeacherPortalService] - http: panic serving [::1]:64793: runtime error: invalid memory address or nil pointer dereference
+goroutine 7 [running]:
+net/http.(*conn).serve.func1(0xc0000b6e60)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375680, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447b80, 0xc00013c1c0, 0x13a7340, 0xc000290880, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cc60, 0xc00013c1c0, 0xc000136900, 0x1)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:108 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cc60, 0xc00013c1c0, 0xc000136900)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:37 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cc60, 0xc00013c1c0, 0xc000136900)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc00013c000, 0x144cc60, 0xc00013c1c0, 0xc000136900)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc0000b6e60, 0x144d3a0, 0xc000080440)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:06:54 [TeacherPortalService] - http: panic serving [::1]:65184: runtime error: invalid memory address or nil pointer dereference
+goroutine 67 [running]:
+net/http.(*conn).serve.func1(0xc0001a81e0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375680, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447b80, 0xc0001bc0e0, 0x13a7340, 0xc000112840, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cc60, 0xc0001bc0e0, 0xc0001c0300, 0x1)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:108 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cc60, 0xc0001bc0e0, 0xc0001c0300)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:37 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cc60, 0xc0001bc0e0, 0xc0001c0300)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc00013c000, 0x144cc60, 0xc0001bc0e0, 0xc0001c0300)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc0001a81e0, 0x144d3a0, 0xc000190200)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:06:56 [TeacherPortalService] - http: panic serving [::1]:65190: runtime error: invalid memory address or nil pointer dereference
+goroutine 32 [running]:
+net/http.(*conn).serve.func1(0xc000168460)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375680, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447b80, 0xc00013c2a0, 0x13a7340, 0xc000112ac0, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cc60, 0xc00013c2a0, 0xc000136d00, 0x1)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:108 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cc60, 0xc00013c2a0, 0xc000136d00)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:37 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cc60, 0xc00013c2a0, 0xc000136d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc00013c000, 0x144cc60, 0xc00013c2a0, 0xc000136d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc000168460, 0x144d3a0, 0xc0001128c0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:07:01 [TeacherPortalService] - http: panic serving [::1]:65215: runtime error: invalid memory address or nil pointer dereference
+goroutine 65 [running]:
+net/http.(*conn).serve.func1(0xc0002883c0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375680, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447b80, 0xc0002a8380, 0x13a7340, 0xc000112c00, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cc60, 0xc0002a8380, 0xc00029af00, 0x1)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:108 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cc60, 0xc0002a8380, 0xc00029af00)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:37 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cc60, 0xc0002a8380, 0xc00029af00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc00013c000, 0x144cc60, 0xc0002a8380, 0xc00029af00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc0002883c0, 0x144d3a0, 0xc000290900)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:07:04 [TeacherPortalService] - http: panic serving [::1]:65221: runtime error: invalid memory address or nil pointer dereference
+goroutine 83 [running]:
+net/http.(*conn).serve.func1(0xc000288500)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375680, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447b80, 0xc0002a8540, 0x13a7340, 0xc000290cc0, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cc60, 0xc0002a8540, 0xc00029b300, 0x1)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:108 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cc60, 0xc0002a8540, 0xc00029b300)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:37 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cc60, 0xc0002a8540, 0xc00029b300)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc00013c000, 0x144cc60, 0xc0002a8540, 0xc00029b300)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc000288500, 0x144d3a0, 0xc000290a40)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:07:04 [TeacherPortalService] - http: panic serving [::1]:65230: runtime error: invalid memory address or nil pointer dereference
+goroutine 98 [running]:
+net/http.(*conn).serve.func1(0xc000168820)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375680, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447b80, 0xc00013c380, 0x13a7340, 0xc000190400, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cc60, 0xc00013c380, 0xc000137400, 0x1)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:108 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cc60, 0xc00013c380, 0xc000137400)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:37 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cc60, 0xc00013c380, 0xc000137400)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc00013c000, 0x144cc60, 0xc00013c380, 0xc000137400)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc000168820, 0x144d3a0, 0xc000112c80)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:07:05 [TeacherPortalService] - http: panic serving [::1]:65236: runtime error: invalid memory address or nil pointer dereference
+goroutine 100 [running]:
+net/http.(*conn).serve.func1(0xc000168960)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375680, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447b80, 0xc00013c460, 0x13a7340, 0xc000290e00, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cc60, 0xc00013c460, 0xc000137600, 0x1)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:108 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cc60, 0xc00013c460, 0xc000137600)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:37 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cc60, 0xc00013c460, 0xc000137600)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc00013c000, 0x144cc60, 0xc00013c460, 0xc000137600)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc000168960, 0x144d3a0, 0xc000112dc0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:07:10 [TeacherPortalService] - http: panic serving [::1]:65261: runtime error: invalid memory address or nil pointer dereference
+goroutine 102 [running]:
+net/http.(*conn).serve.func1(0xc000168aa0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375680, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447b80, 0xc00013c540, 0x13a7340, 0xc000190540, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cc60, 0xc00013c540, 0xc000137900, 0x1)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:108 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cc60, 0xc00013c540, 0xc000137900)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:37 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cc60, 0xc00013c540, 0xc000137900)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc00013c000, 0x144cc60, 0xc00013c540, 0xc000137900)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc000168aa0, 0x144d3a0, 0xc000112f00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:07:40 [TeacherPortalService] - http: panic serving [::1]:65395: runtime error: invalid memory address or nil pointer dereference
+goroutine 104 [running]:
+net/http.(*conn).serve.func1(0xc000168be0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375680, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447b80, 0xc00013c620, 0x13a7340, 0xc000190680, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cc60, 0xc00013c620, 0xc000137c00, 0x1)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:108 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cc60, 0xc00013c620, 0xc000137c00)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:37 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cc60, 0xc00013c620, 0xc000137c00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc00013c000, 0x144cc60, 0xc00013c620, 0xc000137c00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc000168be0, 0x144d3a0, 0xc000113040)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:08:40 [TeacherPortalService] - http: panic serving [::1]:49299: runtime error: invalid memory address or nil pointer dereference
+goroutine 69 [running]:
+net/http.(*conn).serve.func1(0xc0001a86e0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375680, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447b80, 0xc0001bc1c0, 0x13a7340, 0xc000113240, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cc60, 0xc0001bc1c0, 0xc0001c0b00, 0x1)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:108 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cc60, 0xc0001bc1c0, 0xc0001c0b00)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:37 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cc60, 0xc0001bc1c0, 0xc0001c0b00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc00013c000, 0x144cc60, 0xc0001bc1c0, 0xc0001c0b00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc0001a86e0, 0x144d3a0, 0xc000190700)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:08:53 [TeacherPortalService] - http: panic serving [::1]:49368: runtime error: invalid memory address or nil pointer dereference
+goroutine 8 [running]:
+net/http.(*conn).serve.func1(0xc0000b6e60)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375960, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447ea0, 0xc0000f8000, 0x13a7620, 0xc000080900, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cf40, 0xc0000f8000, 0xc0000f4200, 0x1)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:109 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cf40, 0xc0000f8000, 0xc0000f4200)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:36 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cf40, 0xc0000f8000, 0xc0000f4200)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc000198000, 0x144cf40, 0xc0000f8000, 0xc0000f4200)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc0000b6e60, 0x144d680, 0xc000080580)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:08:57 [TeacherPortalService] - http: panic serving [::1]:49375: runtime error: invalid memory address or nil pointer dereference
+goroutine 27 [running]:
+net/http.(*conn).serve.func1(0xc0001d60a0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375960, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447ea0, 0xc0001982a0, 0x13a7620, 0xc000080c40, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cf40, 0xc0001982a0, 0xc0001b2800, 0x1)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:109 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cf40, 0xc0001982a0, 0xc0001b2800)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:36 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cf40, 0xc0001982a0, 0xc0001b2800)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc000198000, 0x144cf40, 0xc0001982a0, 0xc0001b2800)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc0001d60a0, 0x144d680, 0xc0001844c0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:08:57 [TeacherPortalService] - http: panic serving [::1]:49386: runtime error: invalid memory address or nil pointer dereference
+goroutine 30 [running]:
+net/http.(*conn).serve.func1(0xc0001d6960)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375960, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447ea0, 0xc000198380, 0x13a7620, 0xc000184b40, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cf40, 0xc000198380, 0xc0001b2b00, 0x1)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:109 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cf40, 0xc000198380, 0xc0001b2b00)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:36 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cf40, 0xc000198380, 0xc0001b2b00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc000198000, 0x144cf40, 0xc000198380, 0xc0001b2b00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc0001d6960, 0x144d680, 0xc000184a40)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:08:58 [TeacherPortalService] - http: panic serving [::1]:49391: runtime error: invalid memory address or nil pointer dereference
+goroutine 55 [running]:
+net/http.(*conn).serve.func1(0xc0000b7180)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375960, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447ea0, 0xc0000f8460, 0x13a7620, 0xc00011e2c0, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cf40, 0xc0000f8460, 0xc0000f4c00, 0x1)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:109 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cf40, 0xc0000f8460, 0xc0000f4c00)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:36 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cf40, 0xc0000f8460, 0xc0000f4c00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc000198000, 0x144cf40, 0xc0000f8460, 0xc0000f4c00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc0000b7180, 0x144d680, 0xc000080cc0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:10:24 [TeacherPortalService] - http: panic serving [::1]:49782: runtime error: invalid memory address or nil pointer dereference
+goroutine 34 [running]:
+net/http.(*conn).serve.func1(0xc00019c000)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375960, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447ea0, 0xc0002f22a0, 0x13a7620, 0xc0001a0580, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cf40, 0xc0002f22a0, 0xc0002b6c00, 0x1)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:109 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cf40, 0xc0002f22a0, 0xc0002b6c00)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:36 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cf40, 0xc0002f22a0, 0xc0002b6c00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc0000f6000, 0x144cf40, 0xc0002f22a0, 0xc0002b6c00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc00019c000, 0x144d680, 0xc0001a0000)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:10:24 [TeacherPortalService] - http: panic serving [::1]:49821: runtime error: invalid memory address or nil pointer dereference
+goroutine 70 [running]:
+net/http.(*conn).serve.func1(0xc0000b7720)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375960, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447ea0, 0xc0000f6460, 0x13a7620, 0xc0000810c0, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cf40, 0xc0000f6460, 0xc0000f4b00, 0x1)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:109 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cf40, 0xc0000f6460, 0xc0000f4b00)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:36 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cf40, 0xc0000f6460, 0xc0000f4b00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc0000f6000, 0x144cf40, 0xc0000f6460, 0xc0000f4b00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc0000b7720, 0x144d680, 0xc000080ec0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:10:25 [TeacherPortalService] - http: panic serving [::1]:49826: runtime error: invalid memory address or nil pointer dereference
+goroutine 48 [running]:
+net/http.(*conn).serve.func1(0xc00019c5a0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375960, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447ea0, 0xc0001b62a0, 0x13a7620, 0xc00028a940, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cf40, 0xc0001b62a0, 0xc0001a4b00, 0x1)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:109 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cf40, 0xc0001b62a0, 0xc0001a4b00)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:36 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cf40, 0xc0001b62a0, 0xc0001a4b00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc0000f6000, 0x144cf40, 0xc0001b62a0, 0xc0001a4b00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc00019c5a0, 0x144d680, 0xc0001a0700)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:10:30 [TeacherPortalService] - http: panic serving [::1]:49851: runtime error: invalid memory address or nil pointer dereference
+goroutine 82 [running]:
+net/http.(*conn).serve.func1(0xc00019c6e0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375960, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447ea0, 0xc0001b6380, 0x13a7620, 0xc0001a0a40, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cf40, 0xc0001b6380, 0xc0001a4e00, 0x1)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:109 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cf40, 0xc0001b6380, 0xc0001a4e00)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:36 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cf40, 0xc0001b6380, 0xc0001a4e00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc0000f6000, 0x144cf40, 0xc0001b6380, 0xc0001a4e00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc00019c6e0, 0x144d680, 0xc0001a0840)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:10:51 [TeacherPortalService] - http: panic serving [::1]:49942: runtime error: invalid memory address or nil pointer dereference
+goroutine 72 [running]:
+net/http.(*conn).serve.func1(0xc0000b79a0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375960, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447ea0, 0xc0002f2380, 0x13a7620, 0xc00028acc0, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cf40, 0xc0002f2380, 0xc0002b7200, 0x5)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:109 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cf40, 0xc0002f2380, 0xc0002b7200)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:36 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cf40, 0xc0002f2380, 0xc0002b7200)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc0000f6000, 0x144cf40, 0xc0002f2380, 0xc0002b7200)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc0000b79a0, 0x144d680, 0xc000081140)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:10:51 [TeacherPortalService] - http: panic serving [::1]:49943: runtime error: invalid memory address or nil pointer dereference
+goroutine 84 [running]:
+net/http.(*conn).serve.func1(0xc00019c960)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375960, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447ea0, 0xc0001b6460, 0x13a7620, 0xc000081340, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cf40, 0xc0001b6460, 0xc0001a5300, 0x5)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:109 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cf40, 0xc0001b6460, 0xc0001a5300)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:36 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cf40, 0xc0001b6460, 0xc0001a5300)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc0000f6000, 0x144cf40, 0xc0001b6460, 0xc0001a5300)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc00019c960, 0x144d680, 0xc0001a0ac0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:10:52 [TeacherPortalService] - http: panic serving [::1]:49948: runtime error: invalid memory address or nil pointer dereference
+goroutine 86 [running]:
+net/http.(*conn).serve.func1(0xc00019caa0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375960, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447ea0, 0xc0001b6540, 0x13a7620, 0xc00028ae00, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cf40, 0xc0001b6540, 0xc0001a5600, 0x5)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:109 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cf40, 0xc0001b6540, 0xc0001a5600)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:36 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cf40, 0xc0001b6540, 0xc0001a5600)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc0000f6000, 0x144cf40, 0xc0001b6540, 0xc0001a5600)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc00019caa0, 0x144d680, 0xc0001a0c00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:10:52 [GradingService] - Student with ID 6 not found
+
+2021/06/08 13:10:52 [TeacherPortalService] - Error retrieving students:  EOF
+
+2021/06/08 13:11:53 [GradingService] - Student with ID 6 not found
+
+2021/06/08 13:11:53 [TeacherPortalService] - Error retrieving students:  EOF
+
+2021/06/08 13:11:55 [TeacherPortalService] - http: panic serving [::1]:50243: runtime error: invalid memory address or nil pointer dereference
+goroutine 66 [running]:
+net/http.(*conn).serve.func1(0xc00019c000)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375960, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447ea0, 0xc0000f60e0, 0x13a7620, 0xc000080a00, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cf40, 0xc0000f60e0, 0xc0000f4400, 0x5)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:109 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cf40, 0xc0000f60e0, 0xc0000f4400)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:36 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cf40, 0xc0000f60e0, 0xc0000f4400)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc0000f6000, 0x144cf40, 0xc0000f60e0, 0xc0000f4400)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc00019c000, 0x144d680, 0xc0001a0000)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:11:55 [TeacherPortalService] - http: panic serving [::1]:50250: runtime error: invalid memory address or nil pointer dereference
+goroutine 24 [running]:
+net/http.(*conn).serve.func1(0xc0001320a0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375960, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447ea0, 0xc000144000, 0x13a7620, 0xc000310500, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cf40, 0xc000144000, 0xc000136000, 0x5)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:109 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cf40, 0xc000144000, 0xc000136000)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:36 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cf40, 0xc000144000, 0xc000136000)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc0000f6000, 0x144cf40, 0xc000144000, 0xc000136000)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc0001320a0, 0x144d680, 0xc00011e100)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:11:56 [TeacherPortalService] - http: panic serving [::1]:50256: runtime error: invalid memory address or nil pointer dereference
+goroutine 14 [running]:
+net/http.(*conn).serve.func1(0xc0000b70e0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375960, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447ea0, 0xc0000f61c0, 0x13a7620, 0xc00011e300, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cf40, 0xc0000f61c0, 0xc0000f4800, 0x5)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:109 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cf40, 0xc0000f61c0, 0xc0000f4800)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:36 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cf40, 0xc0000f61c0, 0xc0000f4800)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc0000f6000, 0x144cf40, 0xc0000f61c0, 0xc0000f4800)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc0000b70e0, 0x144d680, 0xc000080a80)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:11:56 [TeacherPortalService] - http: panic serving [::1]:50258: runtime error: invalid memory address or nil pointer dereference
+goroutine 26 [running]:
+net/http.(*conn).serve.func1(0xc000132320)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375960, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447ea0, 0xc0001440e0, 0x13a7620, 0xc000310640, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cf40, 0xc0001440e0, 0xc000136400, 0x1)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:109 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cf40, 0xc0001440e0, 0xc000136400)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:36 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cf40, 0xc0001440e0, 0xc000136400)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc0000f6000, 0x144cf40, 0xc0001440e0, 0xc000136400)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc000132320, 0x144d680, 0xc00011e380)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:11:57 [TeacherPortalService] - http: panic serving [::1]:50263: runtime error: invalid memory address or nil pointer dereference
+goroutine 28 [running]:
+net/http.(*conn).serve.func1(0xc000132460)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375960, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447ea0, 0xc0001441c0, 0x13a7620, 0xc00011e700, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cf40, 0xc0001441c0, 0xc000136600, 0x1)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:109 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cf40, 0xc0001441c0, 0xc000136600)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:36 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cf40, 0xc0001441c0, 0xc000136600)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc0000f6000, 0x144cf40, 0xc0001441c0, 0xc000136600)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc000132460, 0x144d680, 0xc00011e500)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:12:02 [TeacherPortalService] - http: panic serving [::1]:50287: runtime error: invalid memory address or nil pointer dereference
+goroutine 16 [running]:
+net/http.(*conn).serve.func1(0xc0000b7220)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1824 +0x153
+panic(0x1375960, 0x1632d00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/runtime/panic.go:971 +0x499
+html/template.(*Template).escape(0x0, 0x0, 0x0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:97 +0x3b
+html/template.(*Template).Execute(0x0, 0x1447ea0, 0xc0000f62a0, 0x13a7620, 0xc000310780, 0x0, 0x20)
+	/usr/local/Cellar/go/1.16.4/libexec/src/html/template/template.go:121 +0x2f
+app/teacherportal.studentsHandler.renderStudent(0x144cf40, 0xc0000f62a0, 0xc0000f4b00, 0x1)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:109 +0x3ec
+app/teacherportal.studentsHandler.ServeHTTP(0x144cf40, 0xc0000f62a0, 0xc0000f4b00)
+	/Users/nick/Documents/Go-tutorial/Building distributed applications in Go/teacherportal/handlers.go:36 +0x1f1
+net/http.(*ServeMux).ServeHTTP(0x1642e80, 0x144cf40, 0xc0000f62a0, 0xc0000f4b00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2448 +0x1ad
+net/http.serverHandler.ServeHTTP(0xc0000f6000, 0x144cf40, 0xc0000f62a0, 0xc0000f4b00)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc0000b7220, 0x144d680, 0xc000080bc0)
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/Cellar/go/1.16.4/libexec/src/net/http/server.go:3013 +0x39b
+
+2021/06/08 13:14:59 [TeacherPortalService] - Failed to parse score:  strconv.ParseFloat: parsing "": invalid syntax
+
